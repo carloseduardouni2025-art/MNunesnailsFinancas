@@ -194,6 +194,12 @@ class MainActivity : ComponentActivity() {
         stats.addView(stat("money", "Total de receitas", currency.format(total(all))), LinearLayout.LayoutParams(0, -1, 1f).apply { marginEnd = dp(8) })
         stats.addView(stat("calendar", "Serviços realizados", all.size.toString()), LinearLayout.LayoutParams(0, -1, 1f))
         content.addView(stats, full(top = 10))
+        content.addView(label("Serviços cadastrados: ${repository.services().size}", 13f, muted).apply {
+            gravity = Gravity.CENTER_VERTICAL
+            minHeight = dp(48)
+            isFocusable = true
+            setOnClickListener { go("services") }
+        }, full())
         content.addView(label("Ações rápidas", 16f, ink, true), full(top = 20, bottom = 10))
         val actions = row()
         listOf(Triple("plus", "Registrar\nReceita", { openIncome() }), Triple("list", "Cadastrar\nServiço", { openService() }), Triple("search", "Consultar\nRegistros", { go("incomes") })).forEachIndexed { index, (icon, title, click) ->

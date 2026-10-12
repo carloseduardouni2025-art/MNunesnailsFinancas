@@ -12,7 +12,7 @@ Aplicativo Android nativo em Kotlin para acompanhar serviços e receitas do sal�
 No PowerShell, com JAVA_HOME configurado:
 
 ```powershell
-./gradlew.bat assembleDebug lintDebug
+./gradlew.bat assembleDebug lintDebug testDebugUnitTest
 ```
 
 O APK é gerado em `app/build/outputs/apk/debug/app-debug.apk`.
@@ -47,4 +47,12 @@ O aplicativo acompanha automaticamente o modo claro/escuro do Android, com palet
 7. Navegar pelas três abas e usar Voltar para retornar ao Início.
 8. Preencher os campos opcionais, salvar e tocar no registro para conferir os detalhes. Conferir os contadores de 200 caracteres e tentar salvar uma receita sem serviço ou forma de pagamento.
 9. Alternar o modo claro/escuro nas configurações do Android. Conferir as três telas, os dois formulários, menus e calendário. Alternar novamente com um formulário preenchido e confirmar que o rascunho permanece.
+
+## Validação automatizada
+
+Compilação do APK e lint concluídos sem erros. A suíte possui 10 testes aprovados: 2 para valores monetários e 8 testes de fluxo com Robolectric em Android 14/API 34 simulado. Os testes de fluxo verificam estados vazios, navegação, cadastro e validação de serviços, campos opcionais, recebimentos e pagamento obrigatório, seleção de data do mês anterior e comparação mensal, cancelamento, limite de 200 caracteres, leitura de registros antigos e restauração da tela e dos rascunhos. Também verificam a troca de orientação e de tema com um rascunho aberto.
+
+Os testes usam armazenamento isolado e não adicionam dados de demonstração ao APK. A suíte Robolectric verifica a persistência reabrindo a Activity e o repositório. O checklist também foi executado no emulador Android 16/API 36, incluindo encerramento real do processo, troca de tema, rotação, teclado, menus, calendário e tela compacta. Consulte o [relatório do emulador](docs/emulator-validation.md) para resultados, evidências e reprodução.
+
+Após executar o comando acima, os relatórios ficam em `app/build/reports/tests/testDebugUnitTest/index.html` e `app/build/reports/lint-results-debug.html`.
 
