@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#FCFCFE</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#181D39</color>
+    <color name="text_secondary">#626B80</color>
+    <color name="outline">#9096A5</color>
+    <color name="accent">#C2184B</color>
+    <color name="action">#D51F59</color>
+    <color name="on_action">#FFFFFF</color>
+    <color name="accent_surface">#FDE1E8</color>
+    <color name="positive">#16733A</color>
+    <color name="hero_start">#FCE0E7</color>
+    <color name="hero_end">#F9C6D4</color>
+    <color name="ripple">#22C2184B</color>
+    <bool name="light_system_bars">true</bool>
+</resources>

@@ -3,6 +3,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+dependencies {
+    implementation("androidx.activity:activity-ktx:1.9.3")
+    testImplementation("junit:junit:4.13.2")
+}
+
 android {
     namespace = "br.com.mnunesnails.financas"
     compileSdk = 36
